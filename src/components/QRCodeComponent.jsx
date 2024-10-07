@@ -2,10 +2,12 @@ import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
 const QRCodeComponent = () => {
+  const url = `${window.location.origin}/player`; // This generates the URL with the /player path
+
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Scan the QR Code to Join the Game</h1>
-      <QRCodeSVG value={window.location.href} size={200} />
+    <div>
+      <h1>Scan the QR code to join the game!</h1>
+      <QRCodeSVG value={url} size={256} />
     </div>
   );
 };
