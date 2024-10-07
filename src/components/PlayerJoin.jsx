@@ -1,11 +1,13 @@
-// src/components/PlayerJoin.jsx
-
 import React, { useState } from 'react';
 import { useGameContext } from '../GameContext';
 
 const PlayerJoin = () => {
   const [name, setName] = useState('');
-  const { handlePlayerJoin } = useGameContext();
+  const { handlePlayerJoin, showGameScreen } = useGameContext();
+
+  if (showGameScreen) {
+    return <Navigate to="/game" />;
+  }
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>

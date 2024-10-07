@@ -1,11 +1,8 @@
-// src/components/GameScreen.jsx
-
 import React from 'react';
 import { useGameContext } from '../GameContext';
 
 const GameScreen = () => {
   const { currentQuestionIndex, questions, handleAnswerSubmission } = useGameContext();
-  
   const currentQuestion = questions[currentQuestionIndex];
 
   if (!currentQuestion) {
@@ -18,7 +15,7 @@ const GameScreen = () => {
       {currentQuestion.options.map((option, index) => (
         <button
           key={index}
-          onClick={() => handleAnswerSubmission(option[0])} // Sending first character (A, B, C, D) as answer
+          onClick={() => handleAnswerSubmission(option[0])}
           style={{ display: 'block', margin: '10px auto', padding: '10px' }}
         >
           {option}

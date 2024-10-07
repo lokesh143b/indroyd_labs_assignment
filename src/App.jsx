@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import QRCodeComponent from './components/QRCodeComponent';
@@ -12,8 +10,13 @@ const App = () => {
     <GameProvider>
       <Router>
         <Routes>
+          {/* Main Screen: Shows QR Code */}
           <Route path="/" element={<QRCodeComponent />} />
+
+          {/* Player Screen: For Mobile users after scanning QR code */}
           <Route path="/player" element={<PlayerJoin />} />
+
+          {/* Game Screen: After player joins */}
           <Route path="/game" element={<GameScreen />} />
         </Routes>
       </Router>
