@@ -1,6 +1,18 @@
-import React from 'react';
+// src/components/GameScreen.js
 
-const GameScreen = ({ currentQuestion, onAnswer }) => {
+import React from 'react';
+import { useGameContext } from '../GameContext';
+
+const GameScreen = () => {
+  const {
+    currentQuestionIndex,
+    questions,
+    handleAnswerSubmission,
+    players,
+  } = useGameContext();
+
+  const currentQuestion = questions[currentQuestionIndex];
+
   if (!currentQuestion) {
     return <h1>Game Over! Thanks for playing.</h1>;
   }
@@ -11,11 +23,15 @@ const GameScreen = ({ currentQuestion, onAnswer }) => {
       {currentQuestion.options.map((option, index) => (
         <button
           key={index}
-          onClick={() => onAnswer(option[0])} // Sending first character (A, B, C, D) as answer
+          onClick={() => handleAnswerSubmission(option[0])} // Sending first character (A, B, C, D) as answer
           style={{ display: 'block', margin: '10px auto', padding: '10px' }}
         >
           {option}
         </button>
+      ))}
+      <h3>Current Players:</h3>
+      {players.map((player, index) => (
+        <p key={index}>{player.name} - Score: {player.score}</p>
       ))}
     </div>
   );

@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+// src/components/PlayerJoin.js
 
-const PlayerJoin = ({ onJoin }) => {
+import React, { useState } from 'react';
+import { useGameContext } from '../GameContext';
+
+const PlayerJoin = () => {
   const [name, setName] = useState('');
+  const { handlePlayerJoin } = useGameContext();
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -14,7 +18,10 @@ const PlayerJoin = ({ onJoin }) => {
       />
       <br />
       <button
-        onClick={() => onJoin(name)}
+        onClick={() => {
+          handlePlayerJoin(name);
+          setName('');
+        }}
         disabled={!name}
         style={{ marginTop: '10px' }}
       >

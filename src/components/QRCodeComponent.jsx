@@ -1,3 +1,5 @@
+// src/components/QRCodeComponent.js
+
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
