@@ -1,3 +1,5 @@
+// src/components/GameScreen.jsx
+
 import React from 'react';
 import { useGameContext } from '../GameContext';
 

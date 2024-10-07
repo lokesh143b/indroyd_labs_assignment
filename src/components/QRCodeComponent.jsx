@@ -1,8 +1,10 @@
+// src/components/QRCodeComponent.jsx
+
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
 const QRCodeComponent = () => {
-  const url = `${window.location.origin}/player`; // Correct URL generation
+  const url = `${window.location.origin}/player`;
 
   return (
     <div>
