@@ -1,16 +1,11 @@
-// src/components/GameScreen.js
+// src/components/GameScreen.jsx
 
 import React from 'react';
 import { useGameContext } from '../GameContext';
 
 const GameScreen = () => {
-  const {
-    currentQuestionIndex,
-    questions,
-    handleAnswerSubmission,
-    players,
-  } = useGameContext();
-
+  const { currentQuestionIndex, questions, handleAnswerSubmission } = useGameContext();
+  
   const currentQuestion = questions[currentQuestionIndex];
 
   if (!currentQuestion) {
@@ -28,10 +23,6 @@ const GameScreen = () => {
         >
           {option}
         </button>
-      ))}
-      <h3>Current Players:</h3>
-      {players.map((player, index) => (
-        <p key={index}>{player.name} - Score: {player.score}</p>
       ))}
     </div>
   );

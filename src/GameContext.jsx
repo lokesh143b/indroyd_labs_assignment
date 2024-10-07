@@ -1,4 +1,4 @@
-// src/GameContext.js
+// src/GameContext.jsx
 
 import React, { createContext, useState, useContext } from 'react';
 
