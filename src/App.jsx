@@ -26,7 +26,14 @@ const App = () => {
   const handleAnswerSubmission = (selectedAnswer) => {
     if (selectedAnswer === questions[currentQuestionIndex].correct) {
       alert("Correct Answer!");
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setCurrentQuestionIndex((prevIndex) => {
+        // Check if we are at the last question
+        if (prevIndex + 1 >= questions.length) {
+          alert("Game Over! Thanks for playing.");
+          return 0; // Reset to first question
+        }
+        return prevIndex + 1;
+      });
     } else {
       alert("Incorrect Answer");
     }
@@ -57,6 +64,7 @@ const App = () => {
             <GameScreen
               currentQuestion={currentQuestion}
               onAnswer={handleAnswerSubmission}
+              players={players} // Pass the players to GameScreen if needed
             />
           }
         />
